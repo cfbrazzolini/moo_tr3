@@ -5,8 +5,7 @@ import play.mvc.Result;
 
 public class Estado extends Controller {
 
-  public static Result index(String uf, String serie_inicial, String serie_final, String op,
-      String args) {
+  public static Result index(String area, String code, String serie_inicial, String serie_final, String params) {
     return TODO;
   }
 }
