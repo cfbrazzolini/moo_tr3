@@ -1,12 +1,12 @@
 package controllers;
 
-import play.mvc.Controller;
+import java.util.List;
+
 import play.mvc.Result;
 
 import com.mongodb.DB;
-import com.mongodb.DBCollection;
 
-public class dxr extends Controller {
+public class dxr extends UtilControladoras {
 
   public static Result index(String area, String code, String serie_inicial, String serie_final,
       String params) {
@@ -14,12 +14,12 @@ public class dxr extends Controller {
     if (db == null) {
       return TODO;
     } else {
-      DBCollection coll = db.getCollection("merge");
-      // DBCursor cursor = coll.find();
-      // while (cursor.hasNext()) {
-      // System.out.println(cursor.next());
-      // }
-      System.out.println(coll.findOne());
+      // monta uma lista com as colunas que serão utilizadas no calculo do coeficiente de correlação
+      if (serie_final == null && serieParametro.indexOf(code) != -1) {
+        List<String> serieRangeTdi = montarRange("tdi", serieParametro.indexOf(code), SERIE_LIMITE);
+        List<String> serieRangeTxr = montarRange("txr", serieParametro.indexOf(code), SERIE_LIMITE);
+      }
+
     }
     return TODO;
   }
