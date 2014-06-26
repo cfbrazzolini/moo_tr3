@@ -1,7 +1,6 @@
 package models;
 
-@MongoEntity("merge")
-public class escola extends MongoModel {
+public class escola {
 
   public String Ano;
   public String Regiao;
