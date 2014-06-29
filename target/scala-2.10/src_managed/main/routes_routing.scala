@@ -1,6 +1,6 @@
-// @SOURCE:/home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/conf/routes
-// @HASH:4c3b0c42171ebd75856be51bccab53d67965330b
-// @DATE:Sun Jun 29 16:23:46 BRT 2014
+// @SOURCE:C:/Users/Hades/Documents/GitHub/moo_tr3/conf/routes
+// @HASH:95ea2d107cd1395a6cfc0eb1b921a6284fe8d448
+// @DATE:Sun Jun 29 18:37:01 BRT 2014
 
 
 import play.core._

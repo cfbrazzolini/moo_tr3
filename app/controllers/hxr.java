@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.math3.distribution.TDistribution;
+
 import Util.UtilControladoras;
 
 import com.mongodb.BasicDBList;
@@ -63,6 +65,12 @@ public class hxr extends Controller {
 			  output += txrList.get(i);
 			  System.out.println( output );
 		  }
+		  
+		  //http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
+		  Double resultFinalPearson  = Correlacao.calculaCorrelacao(mhaList, txrList, "pearson");
+		  Double resultFinalSpearman = Correlacao.calculaCorrelacao(mhaList, txrList, "spearman");
+		  System.out.println( "Resultados da correlacao MHA e TXR Pearson " +  resultFinalPearson );
+		  System.out.println( "Resultados da correlacao MHA e TXR Spearman " +  resultFinalSpearman );
 	    }
 	  return TODO;
   }

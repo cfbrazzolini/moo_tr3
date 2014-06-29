@@ -67,6 +67,12 @@ public class dxr extends Controller {
 		  output += txrList.get(i);
 		  System.out.println( output );
 	  }
+	  
+	  //http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
+	  Double resultFinalPearson  = Correlacao.calculaCorrelacao(tdiList, txrList, "pearson");
+	  Double resultFinalSpearman = Correlacao.calculaCorrelacao(tdiList, txrList, "spearman");
+	  System.out.println( "Resultados da correlacao TDI e TXR Pearson " +  resultFinalPearson );
+	  System.out.println( "Resultados da correlacao TDI e TXR Spearman " +  resultFinalSpearman );
     }
     return TODO;
   }

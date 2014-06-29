@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
-	<info organisation="moodadosabertos" module="moodadosabertos_2.10" revision="1.0-SNAPSHOT" status="integration" publication="20140629171930">
+	<info organisation="moodadosabertos" module="moodadosabertos_2.10" revision="1.0-SNAPSHOT" status="integration" publication="20140629183641">
 		<description>
 		mooDadosAbertos
 		</description>

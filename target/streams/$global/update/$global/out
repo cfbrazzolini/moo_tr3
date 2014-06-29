@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/}moo_tr3...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/Hades/Documents/GitHub/moo_tr3/}moo_tr3...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.3 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.3 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7f29e642[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@43a7a401[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.3[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.10.3[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.3 in sbt-chain[0m
@@ -780,9 +780,9 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.0 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.apache.commons#commons-math3;3.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.commons#commons-math3;3.0 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0m		tried /home/jorge/Documents/MOO_TR3/play-2.2.3/repository/local/org.apache.commons/commons-math3/3.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried D:\PlayFramework\play-2.2.3\repository\local\org.apache.commons\commons-math3\3.0\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.apache.commons#commons-math3;3.0[0m
-[0m[[0mdebug[0m] [0m		tried file:/home/jorge/.m2/repository/org/apache/commons/commons-math3/3.0/commons-math3-3.0.pom[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/Hades/.m2/repository/org/apache/commons/commons-math3/3.0/commons-math3-3.0.pom[0m
 [0m[[0mdebug[0m] [0m	Maven2 Local: no ivy file found for org.apache.commons#commons-math3;3.0[0m
 [0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/commons-math3-3.0.pom[0m
 [0m[[0mdebug[0m] [0m	public: found md file for org.apache.commons#commons-math3;3.0[0m
@@ -791,12 +791,12 @@
 [0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/commons-math3-3.0.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/commons-math3-3.0.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/commons-math3-3.0.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.commons#commons-math3;3.0!commons-math3.pom(pom.original) (7887ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.commons#commons-math3;3.0!commons-math3.pom(pom.original) (868ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;23 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.commons#commons-parent;23 {}[0m
-[0m[[0mdebug[0m] [0m		tried /home/jorge/Documents/MOO_TR3/play-2.2.3/repository/local/org.apache.commons/commons-parent/23/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried D:\PlayFramework\play-2.2.3\repository\local\org.apache.commons\commons-parent\23\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.apache.commons#commons-parent;23[0m
-[0m[[0mdebug[0m] [0m		tried file:/home/jorge/.m2/repository/org/apache/commons/commons-parent/23/commons-parent-23.pom[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/Hades/.m2/repository/org/apache/commons/commons-parent/23/commons-parent-23.pom[0m
 [0m[[0mdebug[0m] [0m	Maven2 Local: no ivy file found for org.apache.commons#commons-parent;23[0m
 [0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/apache/commons/commons-parent/23/commons-parent-23.pom[0m
 [0m[[0mdebug[0m] [0m	public: found md file for org.apache.commons#commons-parent;23[0m
@@ -805,35 +805,33 @@
 [0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/apache/commons/commons-parent/23/commons-parent-23.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/apache/commons/commons-parent/23/commons-parent-23.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/apache/commons/commons-parent/23/commons-parent-23.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.commons#commons-parent;23!commons-parent.pom(pom.original) (7991ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.commons#commons-parent;23!commons-parent.pom(pom.original) (1405ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache#apache;9 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache#apache;9 {}[0m
-[0m[[0mdebug[0m] [0m		tried /home/jorge/Documents/MOO_TR3/play-2.2.3/repository/local/org.apache/apache/9/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried D:\PlayFramework\play-2.2.3\repository\local\org.apache\apache\9\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.apache#apache;9[0m
-[0m[[0mdebug[0m] [0m		tried file:/home/jorge/.m2/repository/org/apache/apache/9/apache-9.pom[0m
-[0m[[0mdebug[0m] [0m	Maven2 Local: no ivy file found for org.apache#apache;9[0m
-[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for org.apache#apache;9[0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom (9)[0m
-[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom ...[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom[0m
-[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom.sha1[0m
-[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache#apache;9!apache.pom(pom.original) (3984ms)[0m
-[0m[[0mdebug[0m] [0m		tried /home/jorge/Documents/MOO_TR3/play-2.2.3/repository/local/org.apache/apache/9/jars/apache.jar[0m
-[0m[[0mdebug[0m] [0m		tried file:/home/jorge/.m2/repository/org/apache/apache/9/apache-9.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/Hades/.m2/repository/org/apache/apache/9/apache-9.pom[0m
+[0m[[0mdebug[0m] [0m	Maven2 Local: found md file for org.apache#apache;9[0m
+[0m[[0mdebug[0m] [0m		=> file:/C:/Users/Hades/.m2/repository/org/apache/apache/9/apache-9.pom (9)[0m
+[0m[[0mdebug[0m] [0mdownloading file:/C:/Users/Hades/.m2/repository/org/apache/apache/9/apache-9.pom ...[0m
+[0m[[0mdebug[0m] [0m	Maven2 Local: downloading file:/C:/Users/Hades/.m2/repository/org/apache/apache/9/apache-9.pom[0m
+[0m[[0mdebug[0m] [0m	Maven2 Local: downloading file:/C:/Users/Hades/.m2/repository/org/apache/apache/9/apache-9.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for file:/C:/Users/Hades/.m2/repository/org/apache/apache/9/apache-9.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache#apache;9!apache.pom(pom.original) (112ms)[0m
+[0m[[0mdebug[0m] [0m		tried D:\PlayFramework\play-2.2.3\repository\local\org.apache\apache\9\jars\apache.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/Hades/.m2/repository/org/apache/apache/9/apache-9.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/org/apache/apache/9/apache-9.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/releases/org/apache/apache/9/apache-9.jar[0m
-[0m[[0mdebug[0m] [0m		tried /home/jorge/Documents/MOO_TR3/play-2.2.3/repository/local/org.apache.commons/commons-parent/23/jars/commons-parent.jar[0m
-[0m[[0mdebug[0m] [0m		tried file:/home/jorge/.m2/repository/org/apache/commons/commons-parent/23/commons-parent-23.jar[0m
+[0m[[0mdebug[0m] [0m		tried D:\PlayFramework\play-2.2.3\repository\local\org.apache.commons\commons-parent\23\jars\commons-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/Hades/.m2/repository/org/apache/commons/commons-parent/23/commons-parent-23.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/apache/commons/commons-parent/23/commons-parent-23.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/apache/commons/commons-parent/23/commons-parent-23.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/org/apache/commons/commons-parent/23/commons-parent-23.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.typesafe.com/typesafe/releases/org/apache/commons/commons-parent/23/commons-parent-23.jar[0m
-[0m[[0mdebug[0m] [0m		tried /home/jorge/Documents/MOO_TR3/play-2.2.3/repository/local/org.apache.commons/commons-math3/3.0/jars/commons-math3.jar[0m
-[0m[[0mdebug[0m] [0m		tried file:/home/jorge/.m2/repository/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar[0m
+[0m[[0mdebug[0m] [0m		tried D:\PlayFramework\play-2.2.3\repository\local\org.apache.commons\commons-math3\3.0\jars\commons-math3.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/Hades/.m2/repository/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar[0m
 [0m[[0mdebug[0m] [0m	found org.apache.commons#commons-math3;3.0 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT->org.apache.commons#commons-math3;3.0 [compile->runtime][0m
@@ -5207,7 +5205,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.3 [scala-tool->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.3 [scala-tool->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.3 [scala-tool->optional(default)][0m
-[0m[[0mdebug[0m] [0m	resolved ivy file produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/moodadosabertos/moodadosabertos_2.10/1.0-SNAPSHOT/resolved.xml.xml[0m
+[0m[[0mdebug[0m] [0m	resolved ivy file produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\moodadosabertos\moodadosabertos_2.10\1.0-SNAPSHOT\resolved.xml.xml[0m
 [0m[[0mdebug[0m] [0m:: downloading artifacts ::[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-library;2.10.3!scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java-jdbc_2.10;2.2.3!play-java-jdbc_2.10.jar[0m
@@ -5219,7 +5217,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.commons#commons-math3;3.0!commons-math3.jar (35289ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.commons#commons-math3;3.0!commons-math3.jar (5544ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play_2.10;2.2.3!play_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java_2.10;2.2.3!play-java_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-jdbc_2.10;2.2.3!play-jdbc_2.10.jar[0m
@@ -5341,19 +5339,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.3!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.3!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 47385ms :: artifacts dl 35423ms[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT compile produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT runtime produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT test produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT provided produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT optional produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT compile-internal produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT runtime-internal produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT test-internal produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT plugin produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT sources produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT docs produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT pom produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT scala-tool produced in /home/jorge/Documents/MOO_TR3/play-2.2.3/moo_tr3/target/resolution-cache/reports/moodadosabertos-moodadosabertos_2.10-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (47385ms resolve - 35423ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 12920ms :: artifacts dl 6140ms[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT compile produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT runtime produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT test produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT provided produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT optional produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT compile-internal produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT runtime-internal produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT test-internal produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT plugin produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT sources produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT docs produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT pom produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for moodadosabertos#moodadosabertos_2.10;1.0-SNAPSHOT scala-tool produced in C:\Users\Hades\Documents\GitHub\moo_tr3\target\resolution-cache\reports\moodadosabertos-moodadosabertos_2.10-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (12920ms resolve - 6140ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
