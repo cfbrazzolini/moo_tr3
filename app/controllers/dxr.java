@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,48 +11,64 @@ import Util.UtilControladoras;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 public class dxr extends Controller {
-  private static List<String> montarRangeTdi(String serie_inicial, int serie_final) {
-    return UtilControladoras.montarRange("tdi",
-        UtilControladoras.serieParametro.indexOf(serie_inicial), serie_final);
-  }
-
-  private static List<String> montarRangeTxr(String code, int serie_final) {
-    return UtilControladoras.montarRange("txr", UtilControladoras.serieParametro.indexOf(code),
-        serie_final);
-  }
 
   public static Result index(String area, String code, String serie_inicial, String serie_final,
-      String params) {
+      String params) 
+  {
     DB db = MongoConnect.connect();
-    if (db == null) {
+    if (db == null) 
+    {
       return TODO;
-    } else {
+    } 
+    else
+    {
       // monta uma lista com as colunas que serão utilizadas no calculo do coeficiente de correlação
       List<String> serieTdi = null;
       List<String> serieRangeTxr = null;
-      if (serie_final == null && UtilControladoras.serieParametro.indexOf(serie_inicial) != -1) {
-        serieTdi = montarRangeTdi(serie_inicial, UtilControladoras.SERIE_LIMITE);
-        serieRangeTxr = montarRangeTxr(serie_inicial, UtilControladoras.SERIE_LIMITE);
-      } else if (UtilControladoras.serieParametro.indexOf(serie_inicial) != -1
-          && UtilControladoras.serieParametro.indexOf(serie_final) != -1) {
-        serieTdi = montarRangeTdi(serie_inicial, UtilControladoras.SERIE_LIMITE);
-        serieRangeTxr = montarRangeTxr(serie_inicial, UtilControladoras.SERIE_LIMITE);
-      } else {
+      if (serie_final == null && UtilControladoras.serieParametro.indexOf(serie_inicial) != -1) 
+      {
+        serieTdi = UtilControladoras.montarRangeTdi(serie_inicial, UtilControladoras.SERIE_LIMITE);
+        serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial, UtilControladoras.SERIE_LIMITE);
+      } 
+      else if (UtilControladoras.serieParametro.indexOf(serie_inicial) != -1
+          && UtilControladoras.serieParametro.indexOf(serie_final) != -1) 
+      {
+        serieTdi = UtilControladoras.montarRangeTdi(serie_inicial, UtilControladoras.SERIE_LIMITE);
+        serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial, UtilControladoras.SERIE_LIMITE);
+      }
+      else 
+      {
         throw new RuntimeException("serie fora dos limites");
       }
       // ----------------------------------------------------------------------------------------------
       BasicDBObject query = new BasicDBObject();
       query = restringeArea(query, area);
-      DBObject resultado = db.getCollection("merge").findOne(query);
+      DBCursor resultado = db.getCollection("merge").find( query );
       if (resultado != null) {
         System.out.println(resultado);
       }
+      
+      ArrayList< Double > tdiList = new ArrayList< Double >();
+	  ArrayList< Double > txrList = new ArrayList< Double >();
+	  UtilControladoras.selectResultData(resultado, serieTdi, serieRangeTxr, tdiList, txrList);
+	  
+	  System.out.println( "TDI X TXR" );
+	  for( int i = 0; i < tdiList.size(); ++i )
+	  {
+		  String output = "";
+		  output += tdiList.get(i);
+		  output += " x ";
+		  output += txrList.get(i);
+		  System.out.println( output );
+	  }
     }
     return TODO;
   }
+  
 
   public static BasicDBObject restringeArea(BasicDBObject query, String area) {
     if ("brasil".equals(area)) {
