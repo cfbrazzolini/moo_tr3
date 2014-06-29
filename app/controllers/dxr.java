@@ -44,7 +44,12 @@ public class dxr extends Controller {
       }
       // ----------------------------------------------------------------------------------------------
       BasicDBObject query = new BasicDBObject();
-      query = restringeArea(query, area);
+      if (area != null) {
+        query = restringeArea(query, area);
+      } else if (code != null) {
+        // TODO - filipe restringe código
+      }
+
       DBObject resultado = db.getCollection("merge").findOne(query);
       if (resultado != null) {
         System.out.println(resultado);
