@@ -18,9 +18,9 @@ public class UtilControladoras extends Controller {
   public static final String[] estadosCentroOeste = { "GO", "MT", "MS" };
   public static final String[] estadosSul = { "PR", "RS", "SC" };
   public static final String[] estadosSudeste = { "ES", "MG", "RJ", "SP" };
-  public static final String[] estadosBrasil = { "AC", "AP", "AM", "PA", "RO", "RR", "TO", "AL",
-      "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE", "GO", "MT", "MS", "PR", "RS", "SC", "ES",
-      "MG", "RJ", "SP" };
+  public static final List<String> estadosBrasil = new ArrayList<String>(Arrays.asList("AC", "AP",
+      "AM", "PA", "RO", "RR", "TO", "AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE", "GO",
+      "MT", "MS", "PR", "RS", "SC", "ES", "MG", "RJ", "SP"));
 
   // ultima série do arquivo é o terceiro ano do ensino médio,
   // contando desde o ensino básico é a décima segunda série

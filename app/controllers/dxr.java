@@ -1,13 +1,16 @@
 package controllers;
 
+import java.util.Arrays;
 import java.util.List;
 
 import play.mvc.Controller;
 import play.mvc.Result;
 import Util.UtilControladoras;
 
+import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
+import com.mongodb.DBObject;
 
 public class dxr extends Controller {
   private static List<String> montarRangeTdi(String serie_inicial, int serie_final) {
@@ -40,16 +43,40 @@ public class dxr extends Controller {
         throw new RuntimeException("serie fora dos limites");
       }
       // ----------------------------------------------------------------------------------------------
-
       BasicDBObject query = new BasicDBObject();
-      for (String serie : serieTdi) {
-        // buscar todas as colunas das séries selecionadas que não tiverem o valor -- (nulo)
-        query.append(serie, new BasicDBObject("$ne", "--"));
-
-        // buscar todas as colunas das séries selecionadas
-        // query.append(serie, "");
+      query = restringeArea(query, area);
+      DBObject resultado = db.getCollection("merge").findOne(query);
+      if (resultado != null) {
+        System.out.println(resultado);
       }
     }
     return TODO;
+  }
+
+  public static BasicDBObject restringeArea(BasicDBObject query, String area) {
+    if ("brasil".equals(area)) {
+      // casa com todas as entradas pois todas são de 2010
+      query.append("Ano", 2010);
+    } else if ("norte".equals(area)) {
+      query.append("Regiao", "Norte");
+    } else if ("nordeste".equals(area)) {
+      query.append("Regiao", "Nordeste");
+    } else if ("sudeste".equals(area)) {
+      query.append("Regiao", "Sudeste");
+    } else if ("sul".equals(area)) {
+      query.append("Regiao", "Sul");
+    } else if ("centroeste".equals(area)) {
+      query.append("Regiao", "Centro_Oeste");
+    } else if (area.split(",").length > 1) {
+      String[] ufs = area.split(",");
+      List<String> ufsList = Arrays.asList(ufs);
+      BasicDBList ufsDBList = new BasicDBList();
+      ufsDBList.addAll(ufsList);
+      DBObject inClause = new BasicDBObject("$in", ufsDBList);
+      query.append("UF", inClause);
+    } else if (UtilControladoras.estadosBrasil.contains(area)) {
+      query.append("UF", area);
+    }
+    return query;
   }
 }
