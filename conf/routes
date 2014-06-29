@@ -8,6 +8,6 @@ GET     /                           controllers.Application.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-GET 	/distxrend					controllers.dxr.index(area: String ?= "bra",cod : String ?= null,serie_inicial : String ?= null,serie_final : String ?= null,param : String ?= null)
+GET 	/distxrend					controllers.dxr.index(area: String ?= "bra",cod : String ?= null,serie_inicial : String ?= "b1",serie_final : String ?= null,param : String ?= null)
 
 GET 	/horaxrend					controllers.hxr.index(area: String ?= "bra",cod : String ?= null,serie_inicial : String ?= "b1",serie_final : String ?= "b9",param : String ?= null)
