@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import play.mvc.Controller;
+
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-
-import play.mvc.Controller;
 
 public class UtilControladoras extends Controller {
   // valores admitidos nos campos serie_inicial e serie_final
@@ -41,57 +41,45 @@ public class UtilControladoras extends Controller {
     }
     return range;
   }
-  
-  public static List<String> montarRangeMha(String serie_inicial, int serie_final) 
-  {
-	  return montarRange("mha", UtilControladoras.serieParametro.indexOf(serie_inicial), serie_final);
+
+  public static List<String> montarRangeMha(String serie_inicial, int serie_final) {
+    return montarRange("mha", UtilControladoras.serieParametro.indexOf(serie_inicial), serie_final);
   }
-  
-  public static List<String> montarRangeTxr(String code, int serie_final) 
-  {
-	  return montarRange("txrAprovacaoNo", UtilControladoras.serieParametro.indexOf(code), serie_final);
+
+  public static List<String> montarRangeTxr(String code, int serie_final) {
+    return montarRange("txrAprovacaoNo", UtilControladoras.serieParametro.indexOf(code),
+        serie_final);
   }
-  
-  public static List<String> montarRangeTdi(String serie_inicial, int serie_final) 
-  {
-	  return montarRange("tdi", UtilControladoras.serieParametro.indexOf(serie_inicial), serie_final);
-  }  
-  
-  public static void selectResultData( DBCursor resultado,
-		  							   List<String> serieNeed,
-		  							   List<String> serieRangeTxr,
-		  							   List< Double > tdiList,
-		  							   List< Double > txrList )
-  {
-      try
-      {
-    	  while( resultado.hasNext() )
-    	  {
-    		  String value = new String();
-    		  String txrValue = new String();
-    		  DBObject currentObject = resultado.next();
-    		  for(String needKey : serieNeed )
-    		  {
-    			  value = currentObject.get( needKey ).toString();
-    		  }
-    		  
-    		  for( String txrKey : serieRangeTxr )
-    		  {
-    			  txrValue = currentObject.get( txrKey ).toString();
-    		  }
-    		  
-    		  if( !value.equals("--") &&
-    			  !txrValue.equals("--") )
-    		  {
-    			  tdiList.add( Double.parseDouble(value) );
-    			  txrList.add( Double.parseDouble(txrValue) );
-    		  }
-    	  }
+
+  public static List<String> montarRangeTdi(String serie_inicial, int serie_final) {
+    return montarRange("tdi", UtilControladoras.serieParametro.indexOf(serie_inicial), serie_final);
+  }
+
+  public static void selectResultData(DBCursor resultado, List<String> serieNeed,
+      List<String> serieRangeTxr, List<Double> tdiList, List<Double> txrList) {
+    try {
+      while (resultado.hasNext()) {
+        String value = new String();
+        String txrValue = new String();
+        DBObject currentObject = resultado.next();
+        for (String needKey : serieNeed) {
+          value = currentObject.get(needKey).toString();
+        }
+
+        for (String txrKey : serieRangeTxr) {
+          if (currentObject.get(txrKey) != null) {
+            txrValue = currentObject.get(txrKey).toString();
+          }
+        }
+
+        if (!value.equals("--") && !txrValue.equals("--")) {
+          tdiList.add(Double.parseDouble(value));
+          txrList.add(Double.parseDouble(txrValue));
+        }
       }
-      finally
-      {
-    	  resultado.close();
-      }  
+    } finally {
+      resultado.close();
+    }
   }
-  
+
 }

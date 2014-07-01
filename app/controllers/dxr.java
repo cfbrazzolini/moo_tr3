@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import Util.UtilControladoras;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -17,66 +19,63 @@ import com.mongodb.DBObject;
 public class dxr extends Controller {
 
   public static Result index(String area, String code, String serie_inicial, String serie_final,
-      String params) 
-  {
+      String params) {
     DB db = MongoConnect.connect();
-    if (db == null) 
-    {
+    if (db == null) {
       return TODO;
-    } 
-    else
-    {
+    } else {
       // monta uma lista com as colunas que serão utilizadas no calculo do coeficiente de correlação
       List<String> serieTdi = null;
       List<String> serieRangeTxr = null;
-      if (serie_final == null && UtilControladoras.serieParametro.indexOf(serie_inicial) != -1) 
-      {
+      if (serie_final == null && UtilControladoras.serieParametro.indexOf(serie_inicial) != -1) {
         serieTdi = UtilControladoras.montarRangeTdi(serie_inicial, UtilControladoras.SERIE_LIMITE);
-        serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial, UtilControladoras.SERIE_LIMITE);
-      } 
-      else if (UtilControladoras.serieParametro.indexOf(serie_inicial) != -1
-          && UtilControladoras.serieParametro.indexOf(serie_final) != -1) 
-      {
+        serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial,
+            UtilControladoras.SERIE_LIMITE);
+      } else if (UtilControladoras.serieParametro.indexOf(serie_inicial) != -1
+          && UtilControladoras.serieParametro.indexOf(serie_final) != -1) {
         serieTdi = UtilControladoras.montarRangeTdi(serie_inicial, UtilControladoras.SERIE_LIMITE);
-        serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial, UtilControladoras.SERIE_LIMITE);
-      }
-      else 
-      {
+        serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial,
+            UtilControladoras.SERIE_LIMITE);
+      } else {
         throw new RuntimeException("serie fora dos limites");
       }
       // ----------------------------------------------------------------------------------------------
       BasicDBObject query = new BasicDBObject();
       query = restringeArea(query, area);
-      DBCursor resultado = db.getCollection("merge").find( query );
+      DBCursor resultado = db.getCollection("merge").find(query);
       if (area != null) {
         query = restringeArea(query, area);
       } else if (code != null) {
         // TODO - filipe restringe código
       }
-      
-      ArrayList< Double > tdiList = new ArrayList< Double >();
-	  ArrayList< Double > txrList = new ArrayList< Double >();
-	  UtilControladoras.selectResultData(resultado, serieTdi, serieRangeTxr, tdiList, txrList);
-	  
-	  System.out.println( "TDI X TXR" );
-	  for( int i = 0; i < tdiList.size(); ++i )
-	  {
-		  String output = "";
-		  output += tdiList.get(i);
-		  output += " x ";
-		  output += txrList.get(i);
-		  System.out.println( output );
-	  }
-	  
-	  //http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
-	  Double resultFinalPearson  = Correlacao.calculaCorrelacao(tdiList, txrList, "pearson");
-	  Double resultFinalSpearman = Correlacao.calculaCorrelacao(tdiList, txrList, "spearman");
-	  System.out.println( "Resultados da correlacao TDI e TXR Pearson " +  resultFinalPearson );
-	  System.out.println( "Resultados da correlacao TDI e TXR Spearman " +  resultFinalSpearman );
+
+      ArrayList<Double> tdiList = new ArrayList<Double>();
+      ArrayList<Double> txrList = new ArrayList<Double>();
+      UtilControladoras.selectResultData(resultado, serieTdi, serieRangeTxr, tdiList, txrList);
+
+      ObjectNode result = Json.newObject();
+      result.put("Query", "Taxa de distorção idade-série X Taxa de rendimento");
+
+      System.out.println("TDI X TXR");
+      for (int i = 0; i < tdiList.size(); ++i) {
+        String output = "";
+        output += tdiList.get(i);
+        output += " x ";
+        output += txrList.get(i);
+        result.put("entrada " + i, tdiList.get(i) + " x " + txrList.get(i));
+        System.out.println(output);
+      }
+
+      // http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
+      Double resultFinalPearson = Correlacao.calculaCorrelacao(tdiList, txrList, "pearson");
+      Double resultFinalSpearman = Correlacao.calculaCorrelacao(tdiList, txrList, "spearman");
+      result.put("Correlacao de Pearson", resultFinalPearson);
+      result.put("Correlacao de Spearman", resultFinalSpearman);
+      System.out.println("Resultados da correlacao TDI e TXR Pearson " + resultFinalPearson);
+      System.out.println("Resultados da correlacao TDI e TXR Spearman " + resultFinalSpearman);
+      return ok(result);
     }
-    return TODO;
   }
-  
 
   public static BasicDBObject restringeArea(BasicDBObject query, String area) {
     if ("brasil".equals(area)) {
