@@ -35,16 +35,12 @@ public class dxr extends Controller {
           && UtilControladoras.serieParametro.indexOf(serie_final) != -1) {
         if (UtilControladoras.serieParametro.indexOf(serie_final) != -1) {
           serieTdi = UtilControladoras.montarRangeTdi(serie_inicial,
-              UtilControladoras.serieParametro.indexOf(serie_final));
+              UtilControladoras.serieParametro.indexOf(serie_final) + 1);
           serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial,
-              UtilControladoras.serieParametro.indexOf(serie_final));
+              UtilControladoras.serieParametro.indexOf(serie_final) + 1);
         }
       } else {
         throw new RuntimeException("serie fora dos limites");
-      }
-
-      for (String teste : serieTdi) {
-        System.out.println(teste);
       }
 
       // ----------------------------------------------------------------------------------------------
