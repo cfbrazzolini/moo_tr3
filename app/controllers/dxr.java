@@ -63,18 +63,24 @@ public class dxr extends Controller {
         return ok(result);
       }
       System.out.println("TDI X TXR");
+      ObjectNode correlacaoSubDocumento = Json.newObject();
       Double resultFinalPearson = Correlacao.calculaCorrelacao(tdiList, txrList, "pearson");
       Double resultFinalSpearman = Correlacao.calculaCorrelacao(tdiList, txrList, "spearman");
-      result.put("Correlacao de Pearson", resultFinalPearson);
-      result.put("Correlacao de Spearman", resultFinalSpearman);
+      correlacaoSubDocumento.put("Correlacao de Pearson", resultFinalPearson);
+      correlacaoSubDocumento.put("Correlacao de Spearman", resultFinalSpearman);
+
+      ObjectNode entradasSubDocumento = Json.newObject();
       for (int i = 0; i < tdiList.size(); ++i) {
-        String output = "";
-        output += tdiList.get(i);
-        output += " x ";
-        output += txrList.get(i);
-        result.put("entrada " + i, tdiList.get(i) + " x " + txrList.get(i));
+        // String output = "";
+        // output += tdiList.get(i);
+        // output += " x ";
+        // output += txrList.get(i);
         // System.out.println(output);
+        entradasSubDocumento.put("entrada " + i, tdiList.get(i) + " x " + txrList.get(i));
       }
+
+      result.put("Correlaçao", correlacaoSubDocumento);
+      result.put("Entradas Analisadas", entradasSubDocumento);
       // http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
       System.out.println("Resultados da correlacao TDI e TXR Pearson " + resultFinalPearson);
       System.out.println("Resultados da correlacao TDI e TXR Spearman " + resultFinalSpearman);

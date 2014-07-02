@@ -59,29 +59,34 @@ public class hxr extends Controller {
       UtilControladoras.selectResultData(resultado, serieMha, serieRangeTxr, mhaList, txrList);
 
       ObjectNode result = Json.newObject();
-      result.put("Query", "Taxa de distorção idade-série X Taxa de rendimento");
+      result.put("Query", "Quantidade de horas-aula X Taxa de rendimento");
       if (mhaList.size() == 0) {
         result.put("Result", "Sem dados válidos");
         return ok(result);
       }
 
       System.out.println("MHA X TXR");
+      ObjectNode correlacaoSubDocumento = Json.newObject();
       Double resultFinalPearson = Correlacao.calculaCorrelacao(mhaList, txrList, "pearson");
       Double resultFinalSpearman = Correlacao.calculaCorrelacao(mhaList, txrList, "spearman");
-      result.put("Correlacao de Pearson", resultFinalPearson);
-      result.put("Correlacao de Spearman", resultFinalSpearman);
-      for (int i = 0; i < mhaList.size(); ++i) {
-        String output = "";
-        output += mhaList.get(i);
-        output += " x ";
-        output += txrList.get(i);
-        System.out.println(output);
-        result.put("entrada " + i, mhaList.get(i) + " x " + txrList.get(i));
-      }
+      correlacaoSubDocumento.put("Correlacao de Pearson", resultFinalPearson);
+      correlacaoSubDocumento.put("Correlacao de Spearman", resultFinalSpearman);
 
+      ObjectNode entradasSubDocumento = Json.newObject();
+      for (int i = 0; i < mhaList.size(); ++i) {
+        // String output = "";
+        // output += mhaList.get(i);
+        // output += " x ";
+        // output += txrList.get(i);
+        // System.out.println(output);
+        entradasSubDocumento.put("entrada " + i, mhaList.get(i) + " x " + txrList.get(i));
+      }
+      result.put("Correlaçao", correlacaoSubDocumento);
+      result.put("Entradas Analisadas", entradasSubDocumento);
       // http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
       System.out.println("Resultados da correlacao MHA e TXR Pearson " + resultFinalPearson);
       System.out.println("Resultados da correlacao MHA e TXR Spearman " + resultFinalSpearman);
+      System.out.println("Entradas encontradas " + mhaList.size());
       return ok(result);
     }
   }
