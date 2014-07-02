@@ -41,16 +41,12 @@ public class dxr extends Controller {
       }
       // ----------------------------------------------------------------------------------------------
       BasicDBObject query = new BasicDBObject();
-      query = restringeArea(query, area);
-      
-      System.out.println( query.toString() );
-      
-      DBCursor resultado = db.getCollection("merge").find(query);
       if (area != null) {
         query = restringeArea(query, area);
       } else if (code != null) {
         // TODO - filipe restringe código
       }
+      DBCursor resultado = db.getCollection("merge").find(query);
 
       ArrayList<Double> tdiList = new ArrayList<Double>();
       ArrayList<Double> txrList = new ArrayList<Double>();
@@ -58,23 +54,19 @@ public class dxr extends Controller {
 
       ObjectNode result = Json.newObject();
       result.put("Query", "Taxa de distorção idade-série X Taxa de rendimento");
-      if( tdiList.size() == 0 )
-      {
-    	result.put("Result", "Sem dados válidos");
-    	return ok(result);
+      if (tdiList.size() == 0) {
+        result.put("Result", "Sem dados válidos");
+        return ok(result);
       }
-
       System.out.println("TDI X TXR");
-      for (int i = 0; i < tdiList.size(); ++i) 
-      {
+      for (int i = 0; i < tdiList.size(); ++i) {
         String output = "";
         output += tdiList.get(i);
         output += " x ";
         output += txrList.get(i);
         result.put("entrada " + i, tdiList.get(i) + " x " + txrList.get(i));
-        //System.out.println(output);
+        // System.out.println(output);
       }
-
       // http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
       Double resultFinalPearson = Correlacao.calculaCorrelacao(tdiList, txrList, "pearson");
       Double resultFinalSpearman = Correlacao.calculaCorrelacao(tdiList, txrList, "spearman");

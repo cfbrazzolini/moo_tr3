@@ -55,34 +55,26 @@ public class UtilControladoras extends Controller {
     return montarRange("tdi", UtilControladoras.serieParametro.indexOf(serie_inicial), serie_final);
   }
 
-  public static void selectResultData(DBCursor resultado,
-		  List<String> serieNeed,
-		  List<String> serieRangeTxr,
-		  List<Double> tdiList,
-		  List<Double> txrList) 
-  {
-    try 
-    {
-      while (resultado.hasNext()) 
-      {
+  public static void selectResultData(DBCursor resultado, List<String> serieNeed,
+      List<String> serieRangeTxr, List<Double> tdiList, List<Double> txrList) {
+    try {
+      while (resultado.hasNext()) {
         DBObject currentObject = resultado.next();
-        for( int i = 0; i < serieNeed.size(); ++i )
-        {
-            String value = new String();
-            String txrValue = new String();
-            value = currentObject.get(serieNeed.get(i)).toString();
+        for (int i = 0; i < serieNeed.size(); ++i) {
+          String value = new String();
+          String txrValue = new String();
+          value = currentObject.get(serieNeed.get(i)).toString();
+          if (currentObject.get(serieRangeTxr.get(i)) != null) {
             txrValue = currentObject.get(serieRangeTxr.get(i)).toString();
-            if (!value.equals("--") && !txrValue.equals("--")) 
-            {
-              //System.out.println( "Valid entry" + value + " " + txrValue );
+            if (!value.equals("--") && !txrValue.equals("--")) {
+              // System.out.println( "Valid entry" + value + " " + txrValue );
               tdiList.add(Double.parseDouble(value));
               txrList.add(Double.parseDouble(txrValue));
             }
+          }
         }
       }
-    } 
-    finally 
-    {
+    } finally {
       resultado.close();
     }
   }
