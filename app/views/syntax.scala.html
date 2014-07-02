@@ -1,7 +1,39 @@
 @(message: String)
 
-@main("Welcome to Play") {
+@main("DadosInep") {
 
-    @play20.welcome(message, style = "Java")
+	<h1><center>Dados Inep</center></h1>
+
+	<div>
+	    <p>Olá</p>
+	    <p>Essa aplicação tem por finalidade analizar a relação entre rendimento escolar e distorção idade-série e entre rendimento escolar e media de horas-aula para turmas do ensino básico, em cima da base de dados do INEP disponibilidado no portal de dados abertos
+	    </p>
+    </div>
+    <div>
+    	<p>Para realizar uma consulta ao banco deve utilizar a seguinte sintaxe para a url:</p>
+    	<ul>
+    		<li>
+    		<p>Para resultado do cruzamento de rendimento com distorção idade-série:</p>
+    		<p>localhost:9000/disxrend?area=AREA&serie_inicial=SERIE_INICIAL&serie_final=SERIE_FINAL</p>
+    		</li>
+    		<li>
+    		<p>Para resultado do cruzamento de rendimento com média de horas-aula:</p>
+    		<p>localhost:9000/horaxrend?area=AREA&serie_inicial=SERIE_INICIAL&serie_final=SERIE_FINAL</p>
+    		</li>
+    	</ul>
+    	<p>Em ambos os casos a utilização dos parâmetros area, serie_inicial e serie_final é optativa, recebendo por padrão a área como sendo o Brasil inteiro e abangendo do 1º ao 9º do ensino básico</p>
+    	<p>Os valores válidos para os parâmetros são:</p>
+    	<ul>
+    		<li>
+    			<p>AREA:</p>
+    			<p>Por região: norte,nordeste,centroste,sudeste,sul</p>
+    			<p>Por estado: a sigla do estado</p>
+    		</li>
+    		<li>
+    			<p>SERIE_INICIAL e SERIE_FINAL</p>
+    			<p>DE b1 a b9, sendo b1 o 1º ano e assim respectivamente</p>
+    		</li>
+    	</ul>
+    </div>
 
 }

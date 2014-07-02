@@ -8,12 +8,7 @@ import views.html.*;
 public class Application extends Controller {
 
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+        return ok(syntax.render("Funfou"));
     }
-
-    public static Result sytax() {
-        return ok(syntax.render("Your new application is ready."));
-    }
-
 
 }
