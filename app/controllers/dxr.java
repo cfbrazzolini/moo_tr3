@@ -48,7 +48,8 @@ public class dxr extends Controller {
       if (area != null) {
         query = restringeArea(query, area);
       } else if (code != null) {
-        query.append("CodigoDoMunicipio", code);
+        System.out.println("TESTE");
+        query.append("CodigoDoMunicipio", Integer.parseInt(code));
       }
       DBCursor resultado = db.getCollection("merge").find(query);
 
