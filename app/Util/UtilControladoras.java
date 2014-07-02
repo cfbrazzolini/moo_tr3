@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 import play.mvc.Controller;
 
 import com.mongodb.DBCursor;
@@ -66,7 +68,9 @@ public class UtilControladoras extends Controller {
           value = currentObject.get(serieNeed.get(i)).toString();
           if (currentObject.get(serieRangeTxr.get(i)) != null) {
             txrValue = currentObject.get(serieRangeTxr.get(i)).toString();
-            if (!value.equals("--") && !txrValue.equals("--")) {
+            if( NumberUtils.isNumber(value) &&
+            	NumberUtils.isNumber(txrValue) )
+            {
               // System.out.println( "Valid entry" + value + " " + txrValue );
               tdiList.add(Double.parseDouble(value));
               txrList.add(Double.parseDouble(txrValue));
