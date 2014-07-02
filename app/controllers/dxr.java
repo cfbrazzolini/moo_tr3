@@ -48,7 +48,7 @@ public class dxr extends Controller {
       if (area != null) {
         query = restringeArea(query, area);
       } else if (code != null) {
-        // TODO - filipe restringe código
+        query.append("CodigoDoMunicipio", code);
       }
       DBCursor resultado = db.getCollection("merge").find(query);
 

@@ -44,7 +44,11 @@ public class hxr extends Controller {
       }
       // ----------------------------------------------------------------------------------------------
       BasicDBObject query = new BasicDBObject();
-      query = restringeArea(query, area);
+      if (area != null) {
+        query = restringeArea(query, area);
+      } else if (code != null) {
+        query.append("CodigoDoMunicipio", code);
+      }
       DBCursor resultado = db.getCollection("merge").find(query);
       if (resultado != null) {
         System.out.println(resultado);
