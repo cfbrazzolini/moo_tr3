@@ -56,6 +56,12 @@ public class hxr extends Controller {
 		  ArrayList< Double > txrList = new ArrayList< Double >();
 		  UtilControladoras.selectResultData(resultado, serieMha, serieRangeTxr, mhaList, txrList);
 		  
+		  if( mhaList.size() == 0 )
+		  {
+			  System.out.println( "Nenhum dado válido para a comparação." );
+			  return TODO;
+		  }
+		  
 		  System.out.println( "MHA X TXR" );
 		  for( int i = 0; i < mhaList.size(); ++i )
 		  {
