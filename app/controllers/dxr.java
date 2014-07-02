@@ -33,12 +33,20 @@ public class dxr extends Controller {
             UtilControladoras.SERIE_LIMITE);
       } else if (UtilControladoras.serieParametro.indexOf(serie_inicial) != -1
           && UtilControladoras.serieParametro.indexOf(serie_final) != -1) {
-        serieTdi = UtilControladoras.montarRangeTdi(serie_inicial, UtilControladoras.SERIE_LIMITE);
-        serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial,
-            UtilControladoras.SERIE_LIMITE);
+        if (UtilControladoras.serieParametro.indexOf(serie_final) != -1) {
+          serieTdi = UtilControladoras.montarRangeTdi(serie_inicial,
+              UtilControladoras.serieParametro.indexOf(serie_final));
+          serieRangeTxr = UtilControladoras.montarRangeTxr(serie_inicial,
+              UtilControladoras.serieParametro.indexOf(serie_final));
+        }
       } else {
         throw new RuntimeException("serie fora dos limites");
       }
+
+      for (String teste : serieTdi) {
+        System.out.println(teste);
+      }
+
       // ----------------------------------------------------------------------------------------------
       BasicDBObject query = new BasicDBObject();
       if (area != null) {
