@@ -8,12 +8,14 @@ import org.apache.commons.math3.distribution.TDistribution;
 
 import Util.UtilControladoras;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -56,11 +58,13 @@ public class hxr extends Controller {
 		  ArrayList< Double > txrList = new ArrayList< Double >();
 		  UtilControladoras.selectResultData(resultado, serieMha, serieRangeTxr, mhaList, txrList);
 		  
-		  if( mhaList.size() == 0 )
-		  {
-			  System.out.println( "Nenhum dado válido para a comparação." );
-			  return TODO;
-		  }
+	      ObjectNode result = Json.newObject();
+	      result.put("Query", "Taxa de distorção idade-série X Taxa de rendimento");
+	      if( mhaList.size() == 0 )
+	      {
+	    	result.put("Result", "Sem dados válidos");
+	    	return ok(result);
+	      }
 		  
 		  System.out.println( "MHA X TXR" );
 		  for( int i = 0; i < mhaList.size(); ++i )
@@ -70,15 +74,18 @@ public class hxr extends Controller {
 			  output += " x ";
 			  output += txrList.get(i);
 			  System.out.println( output );
+			  result.put("entrada " + i, mhaList.get(i) + " x " + txrList.get(i));
 		  }
 		  
 		  //http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
 		  Double resultFinalPearson  = Correlacao.calculaCorrelacao(mhaList, txrList, "pearson");
 		  Double resultFinalSpearman = Correlacao.calculaCorrelacao(mhaList, txrList, "spearman");
+	      result.put("Correlacao de Pearson", resultFinalPearson);
+	      result.put("Correlacao de Spearman", resultFinalSpearman);
 		  System.out.println( "Resultados da correlacao MHA e TXR Pearson " +  resultFinalPearson );
 		  System.out.println( "Resultados da correlacao MHA e TXR Spearman " +  resultFinalSpearman );
+		  return ok(result);
 	    }
-	  return TODO;
   }
   
   
