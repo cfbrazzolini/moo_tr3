@@ -18,12 +18,12 @@ public class UtilControladoras extends Controller {
   public static final String[] estadosNorte = { "AC", "AP", "AM", "PA", "RO", "RR", "TO" };
   public static final String[] estadosNordeste = { "AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN",
       "SE" };
-  public static final String[] estadosCentroOeste = { "GO", "MT", "MS" };
+  public static final String[] estadosCentroOeste = { "GO", "MT", "MS", "DF" };
   public static final String[] estadosSul = { "PR", "RS", "SC" };
   public static final String[] estadosSudeste = { "ES", "MG", "RJ", "SP" };
   public static final List<String> estadosBrasil = new ArrayList<String>(Arrays.asList("AC", "AP",
       "AM", "PA", "RO", "RR", "TO", "AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE", "GO",
-      "MT", "MS", "PR", "RS", "SC", "ES", "MG", "RJ", "SP"));
+      "MT", "MS", "PR", "RS", "SC", "ES", "MG", "RJ", "SP", "DF"));
 
   // ultima série do arquivo é o terceiro ano do ensino médio,
   // contando desde o ensino básico é a décima segunda série
@@ -55,29 +55,34 @@ public class UtilControladoras extends Controller {
     return montarRange("tdi", UtilControladoras.serieParametro.indexOf(serie_inicial), serie_final);
   }
 
-  public static void selectResultData(DBCursor resultado, List<String> serieNeed,
-      List<String> serieRangeTxr, List<Double> tdiList, List<Double> txrList) {
-    try {
-      while (resultado.hasNext()) {
-        String value = new String();
-        String txrValue = new String();
+  public static void selectResultData(DBCursor resultado,
+		  List<String> serieNeed,
+		  List<String> serieRangeTxr,
+		  List<Double> tdiList,
+		  List<Double> txrList) 
+  {
+    try 
+    {
+      while (resultado.hasNext()) 
+      {
         DBObject currentObject = resultado.next();
-        for (String needKey : serieNeed) {
-          value = currentObject.get(needKey).toString();
-        }
-
-        for (String txrKey : serieRangeTxr) {
-          if (currentObject.get(txrKey) != null) {
-            txrValue = currentObject.get(txrKey).toString();
-          }
-        }
-
-        if (!value.equals("--") && !txrValue.equals("--")) {
-          tdiList.add(Double.parseDouble(value));
-          txrList.add(Double.parseDouble(txrValue));
+        for( int i = 0; i < serieNeed.size(); ++i )
+        {
+            String value = new String();
+            String txrValue = new String();
+            value = currentObject.get(serieNeed.get(i)).toString();
+            txrValue = currentObject.get(serieRangeTxr.get(i)).toString();
+            if (!value.equals("--") && !txrValue.equals("--")) 
+            {
+              //System.out.println( "Valid entry" + value + " " + txrValue );
+              tdiList.add(Double.parseDouble(value));
+              txrList.add(Double.parseDouble(txrValue));
+            }
         }
       }
-    } finally {
+    } 
+    finally 
+    {
       resultado.close();
     }
   }
