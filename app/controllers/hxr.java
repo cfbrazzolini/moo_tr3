@@ -66,6 +66,10 @@ public class hxr extends Controller {
       }
 
       System.out.println("MHA X TXR");
+      Double resultFinalPearson = Correlacao.calculaCorrelacao(mhaList, txrList, "pearson");
+      Double resultFinalSpearman = Correlacao.calculaCorrelacao(mhaList, txrList, "spearman");
+      result.put("Correlacao de Pearson", resultFinalPearson);
+      result.put("Correlacao de Spearman", resultFinalSpearman);
       for (int i = 0; i < mhaList.size(); ++i) {
         String output = "";
         output += mhaList.get(i);
@@ -76,10 +80,6 @@ public class hxr extends Controller {
       }
 
       // http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
-      Double resultFinalPearson = Correlacao.calculaCorrelacao(mhaList, txrList, "pearson");
-      Double resultFinalSpearman = Correlacao.calculaCorrelacao(mhaList, txrList, "spearman");
-      result.put("Correlacao de Pearson", resultFinalPearson);
-      result.put("Correlacao de Spearman", resultFinalSpearman);
       System.out.println("Resultados da correlacao MHA e TXR Pearson " + resultFinalPearson);
       System.out.println("Resultados da correlacao MHA e TXR Spearman " + resultFinalSpearman);
       return ok(result);

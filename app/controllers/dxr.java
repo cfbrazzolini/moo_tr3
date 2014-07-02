@@ -63,6 +63,10 @@ public class dxr extends Controller {
         return ok(result);
       }
       System.out.println("TDI X TXR");
+      Double resultFinalPearson = Correlacao.calculaCorrelacao(tdiList, txrList, "pearson");
+      Double resultFinalSpearman = Correlacao.calculaCorrelacao(tdiList, txrList, "spearman");
+      result.put("Correlacao de Pearson", resultFinalPearson);
+      result.put("Correlacao de Spearman", resultFinalSpearman);
       for (int i = 0; i < tdiList.size(); ++i) {
         String output = "";
         output += tdiList.get(i);
@@ -72,10 +76,6 @@ public class dxr extends Controller {
         // System.out.println(output);
       }
       // http://localhost:9000/distxrend?area=DF&serie_inicial=b1&serie_final=b9
-      Double resultFinalPearson = Correlacao.calculaCorrelacao(tdiList, txrList, "pearson");
-      Double resultFinalSpearman = Correlacao.calculaCorrelacao(tdiList, txrList, "spearman");
-      result.put("Correlacao de Pearson", resultFinalPearson);
-      result.put("Correlacao de Spearman", resultFinalSpearman);
       System.out.println("Resultados da correlacao TDI e TXR Pearson " + resultFinalPearson);
       System.out.println("Resultados da correlacao TDI e TXR Spearman " + resultFinalSpearman);
       System.out.println("Entradas encontradas " + tdiList.size());
