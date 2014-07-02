@@ -78,6 +78,7 @@ public class dxr extends Controller {
       result.put("Correlacao de Spearman", resultFinalSpearman);
       System.out.println("Resultados da correlacao TDI e TXR Pearson " + resultFinalPearson);
       System.out.println("Resultados da correlacao TDI e TXR Spearman " + resultFinalSpearman);
+      System.out.println("Entradas encontradas " + tdiList.size());
       return ok(result);
     }
   }
