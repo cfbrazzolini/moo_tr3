@@ -6,7 +6,8 @@ bin/
 /logs/
 /modules
 /project/project
-/project/target
+/project/target/
+/project/target/*
 /target
 tmp/
 test-result
